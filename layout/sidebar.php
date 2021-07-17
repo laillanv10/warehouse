@@ -18,6 +18,13 @@
           <p>Tally Sheet</p>
         </a>
       </li>
+
+      <li class="nav-item <?php if (@$_GET['module']=='berita_acara'){echo 'active';} ?>">
+        <a class="nav-link" href="?module=berita_acara">
+          <i class="material-icons">bubble_chart</i>
+          <p>Berita Acara</p>
+        </a>
+      </li>
       <!-- <li class="nav-item <?php if (@$_GET['module']=='pasien'){echo 'active';} ?>">
         <a class="nav-link" href="?module=pasien">
           <i class="material-icons">person</i>
