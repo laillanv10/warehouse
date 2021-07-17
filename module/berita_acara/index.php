@@ -22,31 +22,41 @@ $aksi   = "module/".$_GET['module']."/action.php";
         <table class="table">
           <thead class=" text-primary">
             <th>#</th>
-            <th>Nama Obat</th>
-            <th>Berat (gram)</th>
-            <th>Jenis Obat</th>
-            <th>Deskripsi</th>
+            <th>Tanggal</th>
+            <th>No Container</th>
+            <th>Nama Kapal</th>
+            <th>Tanggal Datang</th>
+            <th>Konsolidator</th>
+            <th>Importir</th>
+            <th>No BL</th>
+            <th>Jumlah</th>
+            <th>Jenis Barang</th>
+            <th>Weight</th>
+            <th>Kubikasi</th>
             <th></th>
           </thead>
           <tbody>
             <?php 
             $no=1;
-            $query=mysqli_query($conn,"SELECT * from obat order by id desc");
+            $query=mysqli_query($conn,"SELECT * from berita_acara order by id desc");
             foreach ($query as $row): 
               ?>
               <tr>
                 <td><?php echo $no++; ?></td>
-                <td>
-                  <strong>
-                    <?php echo ucwords($row['nama_obat']); ?>
-                  </strong>
-                </td>
-                <td><?php echo $row['berat'] ?> gram</td>
-                <td><?php echo $row['jenis_obat'];?></td>
-                <td><?php echo $row['deskripsi'];?></td>
+                <td><?php echo ucwords($row['tanggal']); ?></td>
+                <td><?php echo $row['no_container'] ?></td>
+                <td><?php echo $row['nama_kapal'];?></td>
+                <td><?php echo $row['tgl_datang'];?></td>
+                <td><?php echo $row['konsolidator'];?></td>
+                <td><?php echo $row['importir'];?></td>
+                <td><?php echo $row['no_bl'];?></td>
+                <td><?php echo $row['jumlah'];?></td>
+                <td><?php echo $row['jenis_barang'];?></td>
+                <td><?php echo $row['weight'];?> KG</td>
+                <td><?php echo $row['kubikasi'];?> M<sup>3</sup></td>
                 <td>
                   <span class="float-right">
-                    <a class="btn btn-primary btn-xs" href="?module=<?php echo $_GET['module'] ?>&act=edit&id=<?php echo $row['id']; ?>"><i class="fa fa-edit"></i></a>
+                    <a class="btn btn-warning btn-xs" href="?module=<?php echo $_GET['module'] ?>&act=edit&id=<?php echo $row['id']; ?>"><i class="fa fa-edit"></i></a>
                     <a class="btn btn-danger btn-xs" onclick="return confirm('Hapus data?')" href="<?php echo $aksi ?>?module=<?php echo $_GET['module'] ?>&act=delete&id=<?php echo $row['id']; ?>"><i class="fa fa-trash"></i></a>
                   </span>
                 </td>
